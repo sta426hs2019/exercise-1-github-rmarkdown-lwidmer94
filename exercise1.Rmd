@@ -1,0 +1,26 @@
+---
+title: "Exercise 1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+set.seed(42)
+```
+
+## Week 1 Exercise b
+```{r message=FALSE}
+x<- data.frame(val=rlnorm(mean=1, sd=0.25, 100))
+ggplot(x, aes(x=val))+
+  geom_histogram(bins = 15, color="black", fill="white")+
+    scale_x_log10()+
+  labs(title = "Histogram log10", x= "Values log_10", y="Count")+
+    theme_bw()
+```
+
+The **mean** of the variable is `r mean(x$val)`.
+The **variance** is `r var(x$val)`.
+We would expect the variance to be \(0.25^2=0.0625 \).
+
+
